@@ -1,0 +1,24 @@
+#Note: The openai-python library support for Azure OpenAI is in preview.
+//code-davinci-002
+//https://oai.azure.com/portal/1128772457284bb6a7a8f443d54943b7/deployment/code
+import os
+import openai
+openai.api_type = "azure"
+openai.api_base = "https://dh-prod-openai.openai.azure.com/"
+openai.api_version = "2022-12-01"
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+response = openai.Completion.create(
+  engine="code",
+  prompt="",
+  temperature=1,
+  max_tokens=100,
+  top_p=0.5,
+  frequency_penalty=0,
+  presence_penalty=0,
+  best_of=1,
+  stop=None)
+
+
+//8778e5ede6014d8a83b385c908149b12
+//https://dh-prod-openai.openai.azure.com/openai/deployments/code/completions?api-version=2022-12-01  
